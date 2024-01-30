@@ -7,7 +7,13 @@ on:
   
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+    inputs:
+      name_1:
+        type: boolean
+        description: Umfangsstatus setzen
+      name_2:
+        type: boolean
+        description: Problemblatt erstellen
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -22,10 +28,10 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        if: ${{ inputs.name_1 }}
+        run: Umfangsstatus setzen
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+        if: ${{ inputs.name_2 }}
+        run: echo Problemblatt erstellen
