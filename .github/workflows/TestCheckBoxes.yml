@@ -8,7 +8,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
-      all:
+      dd:
         type: choice
         description: Alle ausführen
         default: all
@@ -35,10 +35,10 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Umfangsstatus setzen
-        if: ${{ inputs.name_1 || inputs.all }}
+        if: ${{ inputs.name_1 || inputs.all || inputs.dd == 'all' }}
         run: echo Umfangsstatus gesetzt
     
       # Runs a set of commands using the runners shell
       - name: Problemblatt erstellen
-        if: ${{ inputs.name_2 || inputs.all }}
+        if: ${{ inputs.name_2 || inputs.all | inputs.dd == 'all' }}
         run: echo Problemblatt erstellt
