@@ -9,8 +9,12 @@ on:
   workflow_dispatch:
     inputs:
       all:
-        type: boolean
+        type: choice
         description: Alle ausführen
+        default: all
+        options:
+        - all
+        - Umfangsstatus
       name_1:
         type: boolean
         description: Umfangsstatus setzen
