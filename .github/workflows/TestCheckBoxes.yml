@@ -1,7 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
 name: Test checkboxes
-
 # Controls when the workflow will run
 on:
   
@@ -35,16 +34,15 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Umfangsstatus setzen
-        continue-on-error: true
-        if: ${{ inputs.name_1 || inputs.all || inputs.dd == 'all' }}
+        if: ${{ (inputs.name_1 || inputs.all || inputs.dd == 'all') && always()}}
         run: echo Umfangsstatus gesetzt
     
       # Runs a set of commands using the runners shell
       - name: Problemblatt erstellen
-        continue-on-error: true
-        if: ${{ inputs.name_2 || inputs.all || inputs.dd == 'all' }}
+        if: ${{ (inputs.name_2 || inputs.all || inputs.dd == 'all') && always()} }}
         run: exit 1
 
       - name: Next
+        if: always()
         run: exit 0
       
