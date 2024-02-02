@@ -34,7 +34,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Umfangsstatus setzen
-        if: ${{ (inputs.name_1 || inputs.all || inputs.dd == 'all') && always() }}
+        if: ${{ (inputs.name_1 || inputs.all || inputs.dd == 'Umfangsstatus' || inputs.dd == 'all') && always() }}
         run: exit 1
     
       # Runs a set of commands using the runners shell
