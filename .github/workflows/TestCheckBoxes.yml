@@ -41,8 +41,8 @@ jobs:
       - name: Problemblatt erstellen
         if: ${{ (inputs.name_2 || inputs.all || inputs.dd == 'all') && always() }}
         run: |
-          chmod +x ./github/setVars.sh
-          ./github/setVars.sh
+          chmod +x .github/setVars.sh
+          .github/setVars.sh
 
       - name: Next
         if: always()
