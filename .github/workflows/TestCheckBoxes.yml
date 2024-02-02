@@ -39,7 +39,7 @@ jobs:
     
       # Runs a set of commands using the runners shell
       - name: Problemblatt erstellen
-        if: ${{ (inputs.name_2 || inputs.all || inputs.dd == 'all') && always()} }}
+        if: ${{ (inputs.name_2 || inputs.all || inputs.dd == 'all') && always() }}
         run: exit 1
 
       - name: Next
