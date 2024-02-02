@@ -40,7 +40,9 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Problemblatt erstellen
         if: ${{ (inputs.name_2 || inputs.all || inputs.dd == 'all') && always() }}
-        run: bash ./github/setVars.sh
+        run: |
+          chmod +x ./github/setVars.sh
+          ./github/setVars.sh
 
       - name: Next
         if: always()
