@@ -27,3 +27,8 @@ jobs:
         with:
           name: cache-data
           path: ~/cache-test/test.properties
+
+     - name: TMP
+       run: |
+         ls
+         pwd
