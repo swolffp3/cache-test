@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 env:
   GITHUB_TOKEN: ${{ github.token }}
-  GITHUB_REPOSITORY: ${{ github.GITHUB_REPOSITORY }}
+  #GITHUB_REPOSITORY: ${{ github.GITHUB_REPOSITORY }}
 jobs:
   # This workflow contains a single job called "build"
   build:
