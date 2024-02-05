@@ -1,0 +1,27 @@
+name: Create file and upload it
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch:
+    inputs:
+      CONTENT_VALUE:
+        type: string
+        description: File content value
+        required: true
+env:
+  CONTENT_VALUE: inputs.content_value
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create file
+        run: echo "FILE_CONTENT=$CONTENT_VALUE" >> test.properties
+
+      - name: Upload file as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: cache-data
+          path: ~/cache-test/test.properties
