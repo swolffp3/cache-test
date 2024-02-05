@@ -19,6 +19,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Change var
-        run: |
-          echo "Current value: $TEST_VAR"
-          echo "TEST_VAR=newVal" >> $GITHUB_ENV
+        run: gh variable set REPOSITORY_TEST_VAR -b newValue
