@@ -31,4 +31,4 @@ jobs:
         run: cat test.properties
 
       - name: List all
-        run: ls -l -r /
+        run: ls -lR /
