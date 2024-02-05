@@ -34,4 +34,4 @@ jobs:
         run: sudo apt-get install -y tree
 
       - name: Show tree
-        run: tree -L 2 /
+        run: tree /home
