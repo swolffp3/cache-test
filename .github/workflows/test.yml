@@ -27,4 +27,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Change var
-        run: gh variable set REPOSITORY_TEST_VAR -b $(cat test.properties);$varValue
+        run: gh variable set REPOSITORY_TEST_VAR -b $(cat test.properties)__$varValue
