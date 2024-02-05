@@ -24,7 +24,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: cache-data
-          path: ~/cache-test/test.properties
+          path: ~/work/cache-test/cache-test/test.properties
 
       - name: TMP
         run: |
