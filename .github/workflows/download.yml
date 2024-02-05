@@ -7,6 +7,7 @@ on:
   workflow_dispatch:
 env:
   GITHUB_TOKEN: ${{ github.token }}
+  GITHUB_REPOSITORY: ${{ GITHUB_REPOSITORY }}
 jobs:
   # This workflow contains a single job called "build"
   build:
@@ -19,7 +20,7 @@ jobs:
 
       - name: 'Download artifact'
         run: |
-          gh api /repos/$ {{ GITHUB_REPOSITORY }}
+          gh api /repos/$GITHUB_REPOSITORY
             
       - name: 'Unzip artifact'
         run: |
