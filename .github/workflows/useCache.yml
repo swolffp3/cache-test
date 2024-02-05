@@ -30,5 +30,8 @@ jobs:
       - name: Print content from cache in std-output
         run: cat test.properties
 
-      - name: List all
-        run: ls -lR /
+      - name: Install tree
+        run: sudo apt-get install -y tree
+
+      - name: Show tree
+        run: tree -L 2 /
