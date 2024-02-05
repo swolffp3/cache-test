@@ -28,5 +28,5 @@ jobs:
 
       - name: TMP
         run: |
-          ls -l
+          ls -l ~
           pwd
