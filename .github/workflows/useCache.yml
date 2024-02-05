@@ -31,7 +31,7 @@ jobs:
         run: cat test.properties
 
       - name: Move
-        run: mv /home/runner/work/cache-test/cache-test/test.properties /
+        run: sudo mv /home/runner/work/cache-test/cache-test/test.properties /
 
       - name: List root
         run: ls -l /
