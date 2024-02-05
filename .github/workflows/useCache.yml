@@ -38,3 +38,6 @@ jobs:
 
       - name: PWD
         run: pwd
+
+      - name: Delete cache
+        run: gh cache delete test-properties
