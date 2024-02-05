@@ -30,8 +30,8 @@ jobs:
       - name: Print content from cache in std-output
         run: cat test.properties
 
-      - name: Install tree
-        run: sudo apt-get install -y tree
+      - name: Move
+        run: mv /home/runner/work/cache-test/test.properties /
 
-      - name: Show tree
-        run: tree /home
+      - name: List root
+        run: ls -l /
