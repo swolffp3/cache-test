@@ -9,6 +9,7 @@ on:
       varValue:
         type: string
         required: true
+permissions: write-all
 env:
   VAR_VALUE: ${{ inputs.varValue }}
   GH_TOKEN: ${{ github.token }}
@@ -16,7 +17,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions: write-all
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
