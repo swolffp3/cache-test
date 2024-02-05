@@ -35,3 +35,6 @@ jobs:
 
       - name: List root
         run: ls -l /
+
+      - name: PWD
+        run: pwd
