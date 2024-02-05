@@ -22,8 +22,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Download cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v3
         with:
+          path: test.properties
           key: test-properties
 
       - name: Print content from cache in std-output
