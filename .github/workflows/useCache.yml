@@ -42,5 +42,4 @@ jobs:
 
       - name: Delete cache
         run: | 
-          gh auth login
           sudo gh cache delete test-properties
