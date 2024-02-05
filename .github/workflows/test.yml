@@ -5,7 +5,12 @@ name: test var
 # Controls when the workflow will run
 on:
   workflow_dispatch:
+    inputs:
+      varValue:
+        type: string
+        required: true
 env:
+  VAR_VALUE: inputs.varValue
   GH_TOKEN: ${{ secrets.CLI_TOKEN }}
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -22,4 +27,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Change var
-        run: gh variable set REPOSITORY_TEST_VAR -b $(cat test.properties)
+        run: gh variable set REPOSITORY_TEST_VAR -b $(cat test.properties);$varValue
