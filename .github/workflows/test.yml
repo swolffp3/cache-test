@@ -11,7 +11,7 @@ on:
         required: true
 env:
   VAR_VALUE: ${{ inputs.varValue }}
-  GH_TOKEN: ${{ secrets.CLI_TOKEN }}
+  GH_TOKEN: ${{ github.token }}
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
