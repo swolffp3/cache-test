@@ -22,9 +22,12 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Download cache
-        uses: actions/cache@4
+        uses: actions/cache@v4
         with:
           key: test-properties
 
       - name: Print content from cache in std-output
         run: cat test.properties
+
+      - name: List all
+        run: ls -l -r /
