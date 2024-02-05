@@ -26,7 +26,5 @@ jobs:
           name: cache-data
           path: ~/work/cache-test/cache-test/test.properties
 
-      - name: TMP
-        run: |
-          ls -l ~
-          pwd
+      - name: RUN ID
+        run: echo "$GITHUB_ACTION"
