@@ -17,6 +17,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Create file
+        run: echo "noice" >> test.properties
+
       # Runs a single command using the runners shell
       - name: Change var
-        run: gh variable set REPOSITORY_TEST_VAR -b newValue
+        run: gh variable set REPOSITORY_TEST_VAR -b $(cat test.properties)
