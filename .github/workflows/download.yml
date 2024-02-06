@@ -21,8 +21,7 @@ jobs:
       
       - name: Download artifacts list
         run: |
-          gh api /repos/$GITHUB_REPOSITORY/actions/artifacts >> download.json
-          jq ".artifacts[0].workflow_run.id" download.json >> id.txt
+          gh api /repos/$GITHUB_REPOSITORY/actions/artifacts --jq '.artifacts[0].workflow_run.id' >> id.txt
           
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v3
@@ -30,10 +29,6 @@ jobs:
           github_token: $GITHUB_TOKEN
           run_id: $(cat id.txt)
           
-        
-      - name: Echo
-        if: always()
-        run: echo "/repos/$GITHUB_REPOSITORY/actions/artifacts/$(cat id.txt)"
       - name: 'Unzip artifact'
         run: |
           unzip cache-data.zip
