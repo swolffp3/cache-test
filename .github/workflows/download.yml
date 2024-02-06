@@ -22,7 +22,10 @@ jobs:
       - name: Download artifacts list
         run: |
           gh api /repos/$GITHUB_REPOSITORY/actions/artifacts --jq '.artifacts[0].workflow_run.id' >> id.txt
-          
+
+      - name: Run id
+        run: cat id.txt
+      
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
