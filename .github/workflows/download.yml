@@ -23,10 +23,7 @@ jobs:
         run: |
           gh api /repos/$GITHUB_REPOSITORY/actions/artifacts --jq '.artifacts[0].workflow_run.id' >> id.txt
           gh run download $(cat id.txt) -D ~/
-
-      - name: Run id
-        run: cat id.txt
       
       - name: Show results
-        run: cat cache-data/test.properties
+        run: cat ~/cache-data/test.properties
           
