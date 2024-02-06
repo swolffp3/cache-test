@@ -30,7 +30,7 @@ jobs:
         run: cat id.txt
       
       - name: Download artifact
-        run: gh run download $cat(id.txt)
+        run: gh run download $(cat id.txt)
           
       - name: 'Unzip artifact'
         run: |
