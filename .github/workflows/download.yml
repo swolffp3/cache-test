@@ -21,7 +21,7 @@ jobs:
       
       - name: Download artifacts list
         run: |
-          gh api /repos/$GITHUB_REPOSITORY >> download.json
+          gh api /repos/$GITHUB_REPOSITORY/actions/artifacts >> download.json
           jq ".id" download.json >> id.txt
 
       - name: Download artifact
