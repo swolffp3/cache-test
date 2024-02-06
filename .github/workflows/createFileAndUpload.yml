@@ -21,10 +21,7 @@ jobs:
         run: echo "FILE_CONTENT=$CONTENT_VALUE" >> test.properties
 
       - name: Upload file as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cache-data
           path: ~/work/cache-test/cache-test/test.properties
-
-      - name: RUN ID
-        run: echo "$GITHUB_ACTION"
