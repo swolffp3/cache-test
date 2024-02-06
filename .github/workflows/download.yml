@@ -8,6 +8,7 @@ on:
 env:
   GITHUB_TOKEN: ${{ github.token }}
   GITHUB_REPOSITORY: ${{ github.repository }}
+permissions: read-all
 jobs:
   # This workflow contains a single job called "build"
   build:
