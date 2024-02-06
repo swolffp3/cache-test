@@ -17,12 +17,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v4
-      - run: sudo apt-get -y install jq
+      #- run: sudo apt-get -y install jq
       
       - name: 'Download artifact'
         run: |
           gh api /repos/$GITHUB_REPOSITORY >> download.json
-          jq ".downloads_url" download.json | echo
+          jq ".downloads_url" download.json >> url.txt
+          cat url.txt
             
       - name: 'Unzip artifact'
         run: |
