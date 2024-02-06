@@ -22,12 +22,14 @@ jobs:
       - name: Download artifacts list
         run: |
           gh api /repos/$GITHUB_REPOSITORY/actions/artifacts >> download.json
-          jq ".artifacts[0].id" download.json >> id.txt
+          jq ".artifacts[0].workflow_run.id" download.json >> id.txt
           
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v3
         with:
-          id: $(cat id.txt)
+          github_token: $GITHUB_TOKEN
+          run_id: $(cat id.txt)
+          
         
       - name: Echo
         if: always()
