@@ -22,6 +22,8 @@ jobs:
       - name: Download artifacts list
         run: |
           gh api /repos/$GITHUB_REPOSITORY/actions/artifacts --jq '.artifacts[0].workflow_run.id' >> id.txt
+          gh api /repos/$GITHUB_REPOSITORY/actions/artifacts >> download.json
+          cat download.json
 
       - name: Run id
         run: cat id.txt
