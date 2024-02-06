@@ -13,6 +13,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Cleanup
-        run: gh actions-cache delete test-properties
+        run: gh cache delete test-properties
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
