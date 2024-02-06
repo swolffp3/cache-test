@@ -8,7 +8,6 @@ on:
 env:
   GITHUB_TOKEN: ${{ github.token }}
   GITHUB_REPOSITORY: ${{ github.repository }}
-#permissions: read-all
 jobs:
   # This workflow contains a single job called "build"
   build:
@@ -20,21 +19,14 @@ jobs:
       - uses: actions/checkout@v4
       #- run: sudo apt-get -y install jq
       
-      - name: Download artifacts list
+      - name: Download artifact
         run: |
           gh api /repos/$GITHUB_REPOSITORY/actions/artifacts --jq '.artifacts[0].workflow_run.id' >> id.txt
-          gh api /repos/$GITHUB_REPOSITORY/actions/artifacts >> download.json
-          cat download.json
+          gh run download $(cat id.txt) -D ~/
 
       - name: Run id
         run: cat id.txt
       
-      - name: Download artifact
-        run: | 
-          gh run download $(cat id.txt)
-          cat cache-data/test.properties
+      - name: Show results
+        run: cat cache-data/test.properties
           
-      - name: 'Unzip artifact'
-        run: |
-          unzip cache-data.zip
-          cat test.properties
