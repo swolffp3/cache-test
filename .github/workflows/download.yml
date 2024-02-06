@@ -6,7 +6,7 @@ name: Download and read
 on:
   workflow_dispatch:
 env:
-  GITHUB_TOKEN: ${{secrets.ARTIFACT_TOKEN}}
+  GITHUB_TOKEN: ${{ github.token }}
   GITHUB_REPOSITORY: ${{ github.repository }}
 permissions: read-all
 jobs:
