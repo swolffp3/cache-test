@@ -32,7 +32,7 @@ jobs:
       - name: Download artifact
         run: | 
           gh run download $(cat id.txt)
-          ls
+          ls cache-data
           
       - name: 'Unzip artifact'
         run: |
