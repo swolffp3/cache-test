@@ -21,11 +21,14 @@ jobs:
       
       - name: Download artifacts list
         run: |
-          gh api /repos/$GITHUB_REPOSITORY/actions/artifacts >> download.json
-          jq ".id" download.json >> id.txt
-          cat download.json
+          gh api /repos/$GITHUB_REPOSITORY/actions/artifacts -F name=cache-data >> download.json
+          jq ".artifacts[0].id" download.json >> id.txt
+          
       - name: Download artifact
-        run: gh api /repos/$GITHUB_REPOSITORY/actions/artifacts/1220060121
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          id: $(cat id.txt)
+        
       - name: Echo
         if: always()
         run: echo "/repos/$GITHUB_REPOSITORY/actions/artifacts/$(cat id.txt)"
