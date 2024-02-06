@@ -22,7 +22,7 @@ jobs:
       - name: 'Download artifact'
         run: |
           gh api /repos/$GITHUB_REPOSITORY >> download.json
-          jq ".downloads_url" download.json >> url.txt
+          jq ".downloads_url" download.json 
       - run: cat url.txt
             
       - name: 'Unzip artifact'
