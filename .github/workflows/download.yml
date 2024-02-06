@@ -31,7 +31,7 @@ jobs:
       
       - name: Download artifact
         run: | 
-          gh run download -n cache-data $(cat id.txt)
+          gh run download $(cat id.txt) -n cache-data 
           cat cache-data/test.properties
           
       - name: 'Unzip artifact'
