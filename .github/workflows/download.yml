@@ -25,7 +25,7 @@ jobs:
           jq ".id" download.json >> id.txt
 
       - name: Download artifact
-        run: gh api /repos/OWNER/REPO/actions/artifacts/$(cat id.txt)
+        run: gh api /repos/$GITHUB_REPOSITORY/actions/artifacts/$(cat id.txt)
             
       - name: 'Unzip artifact'
         run: |
