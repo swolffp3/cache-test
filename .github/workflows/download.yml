@@ -24,10 +24,10 @@ jobs:
           gh api /repos/$GITHUB_REPOSITORY/actions/artifacts --jq '.artifacts[0].workflow_run.id' >> id.txt
           
       - name: Download artifact
-        uses: dawidd6/action-download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
-          github_token: $GITHUB_TOKEN
-          run_id: $(cat id.txt)
+          name: cache-data
+          run-id: $(cat id.txt)
           
       - name: 'Unzip artifact'
         run: |
