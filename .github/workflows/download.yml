@@ -32,7 +32,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          github-token: ${{secrects.ARTIFACT_TOKEN}}
+          github-token: ${{secrets.ARTIFACT_TOKEN}}
           run-id: $(cat id.txt)
           
       - name: 'Unzip artifact'
