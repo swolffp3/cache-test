@@ -9,7 +9,7 @@ on:
         description: File content value
         required: true
 env:
-  CONTENT_VALUE: inputs.content_value
+  CONTENT_VALUE: ${{ inputs.content_value }}
   
 jobs:
   build:
