@@ -6,7 +6,7 @@ name: Download and read
 on:
   workflow_dispatch:
 env:
-  GITHUB_TOKEN: ${{ github.token }}
+  GITHUB_TOKEN: ${{secrets.ARTIFACT_TOKEN}}
   GITHUB_REPOSITORY: ${{ github.repository }}
 permissions: read-all
 jobs:
@@ -32,7 +32,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          github-token: ${{secrets.ARTIFACT_TOKEN}}
+          github-token: $GITHUB_TOKEN
           run-id: $(cat id.txt)
           
       - name: 'Unzip artifact'
