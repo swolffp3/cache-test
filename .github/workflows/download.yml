@@ -23,7 +23,7 @@ jobs:
         run: |
           gh api /repos/$GITHUB_REPOSITORY/actions/artifacts >> download.json
           jq ".id" download.json >> id.txt
-
+          cat download.json
       - name: Download artifact
         run: gh api /repos/$GITHUB_REPOSITORY/actions/artifacts/1220060121
       - name: Echo
