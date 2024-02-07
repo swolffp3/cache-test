@@ -9,7 +9,16 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
+      - name: Restore cache
+        uses: actions/cache/restore@v3
+        with:
+          path: test.properties
+          key: test-properties
+
+      - name: Show restored content
+        run: cat test.properties
+        
       - name: Cleanup
         run: gh cache delete test-properties
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
