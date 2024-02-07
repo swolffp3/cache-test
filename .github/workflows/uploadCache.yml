@@ -1,0 +1,26 @@
+name: Upload cache
+
+on:
+  workflow_dispatch:
+    inputs:
+      varValue:
+        type: string
+        description: New variable value
+        required: true
+env:
+  INPUT: ${{ inputs.varValue }}
+jobs:
+  workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create file
+        run: echo "$INPUT" >> test.properties
+
+      - name: Cache file
+        uses: actions/cache/save@v3
+        with:
+          path: test.properties
+          key: test-properties
